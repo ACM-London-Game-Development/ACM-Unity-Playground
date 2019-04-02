@@ -28,6 +28,7 @@ public class ObjectShooter : MonoBehaviour
 	// Will be set to 0 or 1 depending on how the GameObject is tagged
 	private int playerNumber;
 
+    public bool dontOverrideTag = false;
 
 	// Use this for initialization
 	void Start ()
@@ -50,7 +51,11 @@ public class ObjectShooter : MonoBehaviour
 			GameObject newObject = Instantiate<GameObject>(prefabToSpawn);
 			newObject.transform.position = this.transform.position;
 			newObject.transform.eulerAngles = new Vector3(0f, 0f, Utils.Angle(actualBulletDirection));
-			newObject.tag = "Bullet";
+
+            if (!dontOverrideTag)
+            {
+                newObject.tag = "Bullet";
+            }
 
 			// push the created objects, but only if they have a Rigidbody2D
 			Rigidbody2D rigidbody2D = newObject.GetComponent<Rigidbody2D>();
