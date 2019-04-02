@@ -20,7 +20,7 @@ public class UIScript : MonoBehaviour
 	public Text[] numberLabels = new Text[2];
 	public Text rightLabel, leftLabel;
 	public Text winLabel;
-	public GameObject statsPanel, gameOverPanel, winPanel;
+	public GameObject statsPanel, gameOverPanel, winPanel, restartPanel;
 	public Transform inventory;
 	public GameObject resourceItemPrefab;
 
@@ -112,6 +112,7 @@ public class UIScript : MonoBehaviour
 			winLabel.text = "Player " + ++playerNumber + " wins!";
 			statsPanel.SetActive(false);
 			winPanel.SetActive(true);
+            restartPanel.SetActive(true);
 		}
 	}
 
@@ -125,7 +126,8 @@ public class UIScript : MonoBehaviour
 			gameOver = true;
 	        statsPanel.SetActive(false);
 	        gameOverPanel.SetActive(true);
-	    }
+            restartPanel.SetActive(true);
+        }
 	}
 
 

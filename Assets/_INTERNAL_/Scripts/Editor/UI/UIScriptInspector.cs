@@ -14,7 +14,7 @@ public class UIScriptInspector : InspectorBase
 
 	public override void OnInspectorGUI()
 	{
-		GUILayout.Space(10);
+        GUILayout.Space(10);
 		EditorGUILayout.HelpBox(explanation, MessageType.Info);
 
 		nOfPlayers = serializedObject.FindProperty("numberOfPlayers").intValue;
