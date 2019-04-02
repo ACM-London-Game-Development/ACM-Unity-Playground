@@ -7,6 +7,7 @@ public class Move : Physics2DObject
 {
 	[Header("Input keys")]
 	public Enums.KeyGroups typeOfControl = Enums.KeyGroups.ArrowKeys;
+    public bool useGamepad = false;
 
 	[Header("Movement")]
 	[Tooltip("Speed of movement")]
@@ -23,20 +24,28 @@ public class Move : Physics2DObject
 	private float moveVertical;
 
 
-	// Update gets called every frame
-	void Update ()
-	{	
-		// Moving with the arrow keys
-		if(typeOfControl == Enums.KeyGroups.ArrowKeys)
-		{
-			moveHorizontal = Input.GetAxis("Horizontal");
-			moveVertical = Input.GetAxis("Vertical");
-		}
-		else
-		{
-			moveHorizontal = Input.GetAxis("Horizontal2");
-			moveVertical = Input.GetAxis("Vertical2");
-		}
+    // Update gets called every frame
+    void Update ()
+	{
+        // Moving with the arrow keys
+        if (!useGamepad)
+        {
+            if (typeOfControl == Enums.KeyGroups.ArrowKeys)
+            {
+                moveHorizontal = Input.GetAxis("Horizontal");
+                moveVertical = Input.GetAxis("Vertical");
+            }
+            else
+            {
+                moveHorizontal = Input.GetAxis("Horizontal2");
+                moveVertical = Input.GetAxis("Vertical2");
+            }
+        }
+        else
+        {
+            moveHorizontal = Input.GetAxis("GamePadHorizontal1");
+            moveVertical = Input.GetAxis("GamePadVertical1");
+        }
 
 		//zero-out the axes that are not needed, if the movement is constrained
 		switch(movementType)

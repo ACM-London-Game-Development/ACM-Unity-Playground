@@ -14,10 +14,19 @@ public class MoveInspector : InspectorBase
 		GUILayout.Space(10);
 		EditorGUILayout.HelpBox(explanation, MessageType.Info);
 
-		//base.OnInspectorGUI();
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("typeOfControl"));
+        //base.OnInspectorGUI();
+        //EditorGUILayout.PropertyField(serializedObject.FindProperty("useGamepad"));
 
-		EditorGUILayout.PropertyField(serializedObject.FindProperty("speed"));
+        GUILayout.Label("Input", EditorStyles.boldLabel);
+        bool useGamepad = EditorGUILayout.Toggle("Use Gamepad", serializedObject.FindProperty("useGamepad").boolValue);
+        if (!useGamepad)
+        {
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("typeOfControl"));
+        }
+        serializedObject.FindProperty("useGamepad").boolValue = useGamepad;
+
+
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("speed"));
 		EditorGUILayout.PropertyField(serializedObject.FindProperty("movementType"));
 
 		GUILayout.Space(5);

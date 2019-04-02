@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 2029142969443309060}
   - component: {fileID: 7259020892834658680}
   - component: {fileID: 930016845122630757}
+  - component: {fileID: 2734585844530347451}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -403,6 +404,39 @@ MonoBehaviour:
   keyToPress: 32
   eventType: 1
   frequency: 0.5
+--- !u!114 &2734585844530347451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7598213886885297229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdab9334f9a2a4efe8c019b5d37595cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions: []
+  useCustomActions: 1
+  customActions:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7598213886885297239}
+        m_MethodName: ReleaseNow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  happenOnlyOnce: 0
+  filterByTag: 1
+  filterTag: Player2
 --- !u!1 &7598213887298827908
 GameObject:
   m_ObjectHideFlags: 0
