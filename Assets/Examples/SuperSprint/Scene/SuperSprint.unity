@@ -482,14 +482,14 @@ GameObject:
   - component: {fileID: 179773021}
   - component: {fileID: 179773010}
   - component: {fileID: 179773014}
-  - component: {fileID: 179773017}
-  - component: {fileID: 179773016}
   - component: {fileID: 179773015}
-  - component: {fileID: 179773019}
   - component: {fileID: 179773020}
   - component: {fileID: 179773022}
   - component: {fileID: 179773018}
   - component: {fileID: 179773023}
+  - component: {fileID: 179773019}
+  - component: {fileID: 179773016}
+  - component: {fileID: 179773017}
   m_Layer: 0
   m_Name: Car 1
   m_TagString: Player
@@ -589,13 +589,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179773009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.499, y: 0.581, z: -0.038530543}
+  m_LocalPosition: {x: -11.27, y: 0, z: 0}
   m_LocalScale: {x: 0.18803088, y: 0.207387, z: 0.92172}
   m_Children:
   - {fileID: 769567653}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -43.137}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &179773014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,7 +618,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179773009}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc51b070fa9284f41beaf009c194f0bd, type: 3}
   m_Name: 
@@ -626,10 +626,11 @@ MonoBehaviour:
   prefabToSpawn: {fileID: 1441319726591840443, guid: e588f116e2a2d4e4eb545afe339aeb37,
     type: 3}
   keyToPress: 32
-  creationRate: 0.5
+  creationRate: 5
   shootSpeed: 50
   shootDirection: {x: 0, y: 1}
   relativeToRotation: 1
+  dontOverrideTag: 1
 --- !u!114 &179773016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,11 +640,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 179773009}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75bd2a7045c0846acaee583b24913cde, type: 3}
+  m_Script: {fileID: 11500000, guid: ef0629909e11f6645801c7d2a0288043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkFor: 4
-  amountNeeded: 1
+  slowFactor: 50
 --- !u!114 &179773017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,35 +653,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 179773009}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73ddb73e2f0dc401ebfb23c7b6e72fa5, type: 3}
+  m_Script: {fileID: 11500000, guid: be840ffee03ed4abe9b3dc9b48f9cae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actions:
-  - {fileID: 179773016}
-  - {fileID: 179773019}
-  useCustomActions: 1
-  customActions:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 179773015}
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  happenOnlyOnce: 1
-  filterByTag: 0
-  filterTag: Player
-  keyToPress: 32
-  eventType: 0
-  frequency: 0.5
+  target: 1
+  deathEffect: {fileID: 1496494696399852, guid: e61802031429a4e2e8f547dbca07fe84,
+    type: 3}
 --- !u!114 &179773018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,13 +686,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 179773009}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96f65a194a6d04c559f3e4f3a2ab77c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 810546aa5348745779a5772744036fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToCreate: {fileID: 1441319726591840443, guid: e588f116e2a2d4e4eb545afe339aeb37,
-    type: 3}
-  newPosition: {x: 0, y: 0}
-  relativeToThisObject: 1
+  actions:
+  - {fileID: 179773017}
+  useCustomActions: 1
+  customActions:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 179773016}
+        m_MethodName: SlowByPercent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  happenOnlyOnce: 0
+  filterByTag: 1
+  filterTag: Bullet
+  frequency: 1
+  eventType: 0
 --- !u!114 &179773020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3910,11 +3907,14 @@ GameObject:
   - component: {fileID: 2065216115}
   - component: {fileID: 2065216109}
   - component: {fileID: 2065216108}
-  - component: {fileID: 2065216107}
-  - component: {fileID: 2065216106}
   - component: {fileID: 2065216105}
-  - component: {fileID: 2065216104}
   - component: {fileID: 2065216114}
+  - component: {fileID: 2065216117}
+  - component: {fileID: 2065216116}
+  - component: {fileID: 2065216110}
+  - component: {fileID: 2065216106}
+  - component: {fileID: 2065216104}
+  - component: {fileID: 2065216107}
   m_Layer: 0
   m_Name: Car 2
   m_TagString: Player2
@@ -3931,13 +3931,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2065216103}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96f65a194a6d04c559f3e4f3a2ab77c7, type: 3}
+  m_Script: {fileID: 11500000, guid: ef0629909e11f6645801c7d2a0288043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToCreate: {fileID: 1441319726591840443, guid: e588f116e2a2d4e4eb545afe339aeb37,
-    type: 3}
-  newPosition: {x: 0, y: 0}
-  relativeToThisObject: 1
+  slowFactor: 50
 --- !u!114 &2065216105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3945,18 +3942,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2065216103}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc51b070fa9284f41beaf009c194f0bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 1441319726591840443, guid: e588f116e2a2d4e4eb545afe339aeb37,
+  prefabToSpawn: {fileID: 1845975875774828671, guid: 068c47c444b42324cb8a4445352d2e4c,
     type: 3}
-  keyToPress: 32
-  creationRate: 0.5
+  keyToPress: 271
+  creationRate: 5
   shootSpeed: 50
   shootDirection: {x: 0, y: 1}
   relativeToRotation: 1
+  dontOverrideTag: 0
 --- !u!114 &2065216106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3966,33 +3964,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2065216103}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75bd2a7045c0846acaee583b24913cde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkFor: 4
-  amountNeeded: 1
---- !u!114 &2065216107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2065216103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73ddb73e2f0dc401ebfb23c7b6e72fa5, type: 3}
+  m_Script: {fileID: 11500000, guid: 810546aa5348745779a5772744036fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 2065216106}
-  - {fileID: 2065216104}
+  - {fileID: 2065216107}
   useCustomActions: 1
   customActions:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2065216105}
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 2065216104}
+        m_MethodName: SlowByPercent
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4003,12 +3986,26 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  happenOnlyOnce: 1
-  filterByTag: 0
-  filterTag: Player
-  keyToPress: 32
+  happenOnlyOnce: 0
+  filterByTag: 1
+  filterTag: Laser
+  frequency: 1
   eventType: 0
-  frequency: 0.5
+--- !u!114 &2065216107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065216103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be840ffee03ed4abe9b3dc9b48f9cae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: 1
+  deathEffect: {fileID: 1496494696399852, guid: e61802031429a4e2e8f547dbca07fe84,
+    type: 3}
 --- !u!114 &2065216108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4039,6 +4036,18 @@ MonoBehaviour:
   rigidbody2D: {fileID: 0}
   direction: {x: 0, y: 4}
   relativeToRotation: 1
+--- !u!114 &2065216110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065216103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e7ec98df9a6d114f81f0004a029fd30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &2065216111
 Rigidbody2D:
   serializedVersion: 4
@@ -4116,14 +4125,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2065216103}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.499, y: 0.541, z: -0.038530543}
+  m_LocalPosition: {x: -9.94, y: -0.24, z: 0}
   m_LocalScale: {x: 0.18910798, y: 0.20857498, z: 0.9269999}
   m_Children:
   - {fileID: 12813476}
   - {fileID: 1759149044}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -53.192}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2065216114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4152,6 +4161,120 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.22}
   serializedVersion: 2
   m_Radius: 2.36
+--- !u!114 &2065216116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065216103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c8c3f2234f243c5919b19712ad9b5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 8010d6d8cb8ed2a43abd3cade8e410f4, type: 3}
+  randomPitch: 0
+  outputMixerGroup: {fileID: 243213680947315216, guid: 9f157fa1610228a4f89cff1dd1500f83,
+    type: 2}
+  shouldPlay: 1
+--- !u!82 &2065216117
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065216103}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2122693949
 GameObject:
   m_ObjectHideFlags: 0
