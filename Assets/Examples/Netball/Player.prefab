@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 7259020892834658680}
   - component: {fileID: 930016845122630757}
   - component: {fileID: 2734585844530347451}
+  - component: {fileID: 4812457214457734619}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -142,6 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody2D: {fileID: 0}
   typeOfControl: 1
+  useGamepad: 0
   speed: 6
   movementType: 0
   orientToDirection: 0
@@ -437,6 +439,18 @@ MonoBehaviour:
   happenOnlyOnce: 0
   filterByTag: 1
   filterTag: Player2
+--- !u!114 &4812457214457734619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7598213886885297229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e7ec98df9a6d114f81f0004a029fd30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7598213887298827908
 GameObject:
   m_ObjectHideFlags: 0
