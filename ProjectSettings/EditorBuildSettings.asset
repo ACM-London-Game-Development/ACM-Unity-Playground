@@ -23,10 +23,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Examples/Roguelike/Roguelike.unity
     guid: ad15a26015e49439387b05c22fe7a962
-  - enabled: 1
+  - enabled: 0
     path: Assets/Examples/Quiet Town/Scenes/Left House.unity
     guid: fd3a720940434bd4a83514127674c5b8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Examples/Quiet Town/Scenes/Quiet Town.unity
     guid: 87b2d295d0666e345a385386a45ab648
+  - enabled: 1
+    path: Assets/Examples/Snitchball/Snitchball.unity
+    guid: 7225381b9400cdd4ca33d1d833460b3d
   m_configObjects: {}

@@ -57,7 +57,7 @@ public class PlayerMode : MonoBehaviour
 
     void RotateShooterArrow()
     {
-        Transform football = transform.Find("Football");
+        Transform football = transform.Find("SnitchBall");
         if (football != null)
         {
             ballDir = football.position - transform.position;

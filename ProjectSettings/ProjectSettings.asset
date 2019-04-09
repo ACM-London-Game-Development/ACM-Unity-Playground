@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Unity Technologies
-  productName: Unity Playground
+  companyName: ACM Game Development
+  productName: Snitchball
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.16176468, g: 0.15105967, b: 0.15703972, a: 1}
@@ -117,7 +117,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.0
+  bundleVersion: 0.1
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -265,7 +265,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 4665a51895b334ccda756f80f158598b, type: 3}
+      m_Icon: {fileID: 2800000, guid: a643c305be3c7e54ea8eeb59c9e02922, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
