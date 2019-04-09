@@ -9,7 +9,7 @@ public class PlayerMode : MonoBehaviour
     //BallGrabber ballGrabber;
     //bool shooting = false;
     Transform shooterArrow;
-    Rigidbody2D rb2d;
+    //Rigidbody2D rb2d;
     Vector2 ballDir = Vector2.zero;
     Move move;
 
@@ -22,7 +22,7 @@ public class PlayerMode : MonoBehaviour
     {
         move = GetComponent<Move>();
         shooterArrow = transform.Find("ShooterArrow");
-        rb2d = GetComponent<Rigidbody2D>();
+        //rb2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame

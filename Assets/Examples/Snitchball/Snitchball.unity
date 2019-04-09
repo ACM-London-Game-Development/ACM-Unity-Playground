@@ -1949,7 +1949,7 @@ PrefabInstance:
     - target: {fileID: 7598213886885297226, guid: 757950be60a54a94eb1796067446a142,
         type: 3}
       propertyPath: typeOfControl
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7598213886885297236, guid: 757950be60a54a94eb1796067446a142,
         type: 3}
