@@ -29,7 +29,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Examples/Quiet Town/Scenes/Quiet Town.unity
     guid: 87b2d295d0666e345a385386a45ab648
-  - enabled: 1
+  - enabled: 0
     path: Assets/Examples/Snitchball/Snitchball.unity
     guid: 7225381b9400cdd4ca33d1d833460b3d
+  - enabled: 0
+    path: Assets/Examples/Tank/Tanks.unity
+    guid: 4444361ef63840344942f1333861b2f9
+  - enabled: 1
+    path: Assets/Examples/Gnome Dog/Gnome Dog.unity
+    guid: 6a161b2822d2c034d9cf01c25e5d2431
   m_configObjects: {}
