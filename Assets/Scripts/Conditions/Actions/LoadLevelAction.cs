@@ -19,6 +19,8 @@ public class LoadLevelAction : Action
         else
         {
             //load another scene
+            levelName = levelName.Substring(0, levelName.Length - 6);
+            Debug.Log(levelName);
             SceneManager.LoadScene(levelName, LoadSceneMode.Single);
         }
     }
@@ -33,8 +35,10 @@ public class LoadLevelAction : Action
 		}
 		else
 		{
-			//load another scene
-			SceneManager.LoadScene(levelName, LoadSceneMode.Single);
+            //load another scene
+            levelName = levelName.Substring(0, levelName.Length - 6);
+            Debug.Log(levelName);
+            SceneManager.LoadScene(levelName, LoadSceneMode.Single);
 		}
 
 		return true;

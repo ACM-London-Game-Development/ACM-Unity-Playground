@@ -28,9 +28,9 @@ public class LoadLevelActionInspector : InspectorBase
 			int i = 1;
 			foreach(EditorBuildSettingsScene s in EditorBuildSettings.scenes)
 			{
-				int lastSlash = s.path.LastIndexOf("/");
-				string shortPath = s.path.Substring(lastSlash+1, s.path.Length-7-lastSlash);
-				sceneNames[i] = shortPath;
+				int lastSlash = s.path.LastIndexOf("/") + 1;
+                string shortPath = s.path.Substring(lastSlash, s.path.Length - lastSlash);
+                sceneNames[i] = shortPath;
 				
 				if(shortPath == sceneNameProperty)
 				{
